@@ -112,7 +112,7 @@ Open to: Full-time remote roles · Contract / consulting · Global teams
 ## 📬 Let's Connect
 
 - 💼 https://www.linkedIn.com/in/danica-c-tomines
-- 🌐 https://danicatomines0811-coder.github.io/github.io/
+- 🌐 https://danicatomines0811-coder.github.io/
 - 📧 danicatomines0811@gmail.com
 
 ---
