@@ -132,9 +132,8 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .field-group {
-    margin-bottom: 1.25rem;
-  }
+  .field-group { margin-bottom: 1.25rem; }
+  .field-group:last-child { margin-bottom: 0; }
 
   .field-label {
     font-size: 12px;
@@ -145,12 +144,16 @@
     letter-spacing: 0.02em;
   }
 
-  .field-label span {
-    font-weight: 400;
+  .field-label span { font-weight: 400; color: var(--text-faint); }
+
+  .field-hint {
+    font-size: 11px;
     color: var(--text-faint);
+    margin-top: 5px;
+    line-height: 1.5;
   }
 
-  input[type="text"], textarea, select {
+  input[type="text"], textarea {
     width: 100%;
     padding: 10px 14px;
     font-size: 14px;
@@ -160,91 +163,17 @@
     background: var(--bg);
     color: var(--text);
     transition: border-color 0.15s;
-    appearance: none;
   }
 
-  input[type="text"]:focus, textarea:focus, select:focus {
+  input[type="text"]:focus, textarea:focus {
     outline: none;
     border-color: var(--accent);
     background: var(--surface);
   }
 
-  textarea {
-    resize: vertical;
-    min-height: 140px;
-    line-height: 1.6;
-  }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
 
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  .tone-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-  }
-
-  .tone-btn {
-    padding: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: 'Instrument Sans', sans-serif;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    background: var(--bg);
-    color: var(--text-muted);
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.12s;
-  }
-
-  .tone-btn:hover { background: var(--surface); color: var(--text); }
-
-  .tone-btn.active {
-    background: var(--text);
-    color: var(--bg);
-    border-color: var(--text);
-  }
-
-  .tone-desc {
-    font-size: 11px;
-    color: var(--text-faint);
-    margin-top: 3px;
-    font-weight: 400;
-    display: block;
-  }
-
-  .purpose-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .purpose-btn {
-    padding: 10px 8px;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: 'Instrument Sans', sans-serif;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    background: var(--bg);
-    color: var(--text-muted);
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.12s;
-    line-height: 1.4;
-  }
-
-  .purpose-btn:hover { background: var(--surface); color: var(--text); }
-
-  .purpose-btn.active {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
   .generate-btn {
     width: 100%;
@@ -258,15 +187,10 @@
     border-radius: var(--radius);
     cursor: pointer;
     transition: opacity 0.15s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
     margin-top: 0.5rem;
   }
 
   .generate-btn:hover { opacity: 0.85; }
-  .generate-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .output-card {
     background: var(--surface);
@@ -294,10 +218,7 @@
     color: var(--text-faint);
   }
 
-  .action-row {
-    display: flex;
-    gap: 8px;
-  }
+  .action-row { display: flex; gap: 8px; }
 
   .action-btn {
     font-size: 12px;
@@ -317,9 +238,7 @@
 
   .action-btn:hover { background: var(--bg); color: var(--text); }
 
-  .output-body {
-    padding: 2rem;
-  }
+  .output-body { padding: 2rem; }
 
   .output-text {
     font-size: 15px;
@@ -327,66 +246,6 @@
     line-height: 1.85;
     white-space: pre-wrap;
     font-family: 'Instrument Sans', sans-serif;
-  }
-
-  .loading-text {
-    color: var(--text-faint);
-    font-style: italic;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .spinner {
-    width: 14px;
-    height: 14px;
-    border: 1.5px solid var(--border-strong);
-    border-top-color: var(--text);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    flex-shrink: 0;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .tips-card {
-    background: var(--accent-light);
-    border: 1px solid rgba(26,79,58,0.15);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .tips-title {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    margin-bottom: 0.625rem;
-    letter-spacing: 0.02em;
-  }
-
-  .tips-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .tips-list li {
-    font-size: 13px;
-    color: var(--accent);
-    opacity: 0.8;
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .tips-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    opacity: 0.6;
   }
 
   footer {
@@ -402,8 +261,6 @@
 
   @media (max-width: 600px) {
     .two-col { grid-template-columns: 1fr; }
-    .tone-grid { grid-template-columns: repeat(2, 1fr); }
-    .purpose-grid { grid-template-columns: repeat(2, 1fr); }
     nav { padding: 0 1.25rem; }
     .container { padding: 0 1.25rem; }
   }
@@ -421,17 +278,7 @@
   <div class="page-header">
     <p class="eyebrow">Private tool</p>
     <h1 class="page-title">Cover letter<br><em style="font-style:italic; color: var(--text-muted);">generator.</em></h1>
-    <p class="page-desc">Paste a job description, pick your tone, and get a tailored cover letter in seconds — already written from your background.</p>
-  </div>
-
-  <div class="tips-card">
-    <p class="tips-title">For best results</p>
-    <ul class="tips-list">
-      <li>Paste the full job description — the more detail, the better the match</li>
-      <li>Add the company name so the letter feels personal and targeted</li>
-      <li>Choose MBA / personal statement for graduate school applications</li>
-      <li>Always read and lightly edit before sending — treat it as a strong first draft</li>
-    </ul>
+    <p class="page-desc">Fill in the four fields below and your tailored cover letter is ready to copy or download — no AI needed.</p>
   </div>
 
   <div class="form-card">
@@ -440,75 +287,40 @@
     <div class="two-col">
       <div class="field-group">
         <label class="field-label" for="company">Company name</label>
-        <input type="text" id="company" placeholder="e.g. Grab, Shopee, Stripe, Google...">
+        <input type="text" id="company" placeholder="e.g. Grab, Shopee, Stripe...">
       </div>
       <div class="field-group">
         <label class="field-label" for="role">Role / position</label>
-        <input type="text" id="role" placeholder="e.g. Analytics Engineer, BI Analyst...">
+        <input type="text" id="role" placeholder="e.g. BI Analyst, Data Analyst...">
       </div>
     </div>
 
     <div class="field-group">
-      <label class="field-label" for="jd">Job description <span>(paste full text for best results)</span></label>
-      <textarea id="jd" placeholder="Paste the job description or key requirements here..."></textarea>
+      <label class="field-label" for="focus">What does this company focus on? <span>(1 short phrase)</span></label>
+      <input type="text" id="focus" placeholder="e.g. scaling BI across product lines, data-driven growth, fintech analytics...">
+      <p class="field-hint">Used in the closing line — pulled from the job description or company about page.</p>
     </div>
 
     <div class="field-group">
       <label class="field-label" for="extra">Anything specific to highlight? <span>(optional)</span></label>
-      <input type="text" id="extra" placeholder="e.g. emphasize Python skills, mention interest in fintech, MBA program focus...">
+      <textarea id="extra" placeholder="e.g. They mentioned attribution modeling — mention the discrepancy investigation. Role is Python-heavy — call out the automation pipeline specifically."></textarea>
+      <p class="field-hint">Leave blank to use the standard body. Add a sentence here and it'll be inserted into the second paragraph.</p>
     </div>
   </div>
 
-  <div class="form-card">
-    <p class="section-label">Purpose</p>
-    <div class="purpose-grid">
-      <button class="purpose-btn active" onclick="setPurpose(this, 'job application')">Job application</button>
-      <button class="purpose-btn" onclick="setPurpose(this, 'MBA / graduate school application')">MBA / grad school</button>
-      <button class="purpose-btn" onclick="setPurpose(this, 'freelance or consulting pitch')">Freelance / consulting</button>
-    </div>
-  </div>
-
-  <div class="form-card">
-    <p class="section-label">Tone</p>
-    <div class="tone-grid">
-      <button class="tone-btn active" onclick="setTone(this, 'professional and polished')">
-        Professional
-        <span class="tone-desc">Clean, formal</span>
-      </button>
-      <button class="tone-btn" onclick="setTone(this, 'confident and direct')">
-        Confident
-        <span class="tone-desc">Bold, assured</span>
-      </button>
-      <button class="tone-btn" onclick="setTone(this, 'conversational and warm')">
-        Conversational
-        <span class="tone-desc">Natural, human</span>
-      </button>
-      <button class="tone-btn" onclick="setTone(this, 'concise and sharp')">
-        Concise
-        <span class="tone-desc">Short, punchy</span>
-      </button>
-    </div>
-  </div>
-
-  <button class="generate-btn" id="genBtn" onclick="generate()">
-    <span id="btnText">Generate cover letter</span>
-  </button>
+  <button class="generate-btn" onclick="generate()">Generate cover letter</button>
 
   <div class="output-card" id="outputCard">
     <div class="output-header">
       <span class="output-title" id="outputLabel">Cover letter</span>
       <div class="action-row">
-        <button class="action-btn" onclick="copyText()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <button class="action-btn" id="copyBtn" onclick="copyText()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
           Copy
         </button>
         <button class="action-btn" onclick="downloadText()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download
-        </button>
-        <button class="action-btn" onclick="regenerate()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-          Regenerate
         </button>
       </div>
     </div>
@@ -522,143 +334,76 @@
 <footer>private · danica tomines · cover letter generator</footer>
 
 <script>
-let selectedTone = 'professional and polished';
-let selectedPurpose = 'job application';
-let lastCompany = '';
-let lastRole = '';
+  let lastCompany = '';
+  let lastRole = '';
 
-function setTone(el, tone) {
-  document.querySelectorAll('.tone-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  selectedTone = tone;
-}
+  function generate() {
+    const company = document.getElementById('company').value.trim();
+    const role = document.getElementById('role').value.trim();
+    const focus = document.getElementById('focus').value.trim();
+    const extra = document.getElementById('extra').value.trim();
 
-function setPurpose(el, purpose) {
-  document.querySelectorAll('.purpose-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  selectedPurpose = purpose;
-}
+    if (!company || !role) {
+      alert('Please enter a company name and role title.');
+      return;
+    }
 
-async function generate() {
-  const company = document.getElementById('company').value.trim();
-  const role = document.getElementById('role').value.trim();
-  const jd = document.getElementById('jd').value.trim();
-  const extra = document.getElementById('extra').value.trim();
+    lastCompany = company;
+    lastRole = role;
 
-  if (!company || !role) {
-    alert('Please enter a company name and role title.');
-    return;
+    const focusLine = focus
+      ? focus
+      : 'building scalable analytics solutions';
+
+    const extraSentence = extra
+      ? '\n\n' + extra
+      : '';
+
+    const letter =
+`Dear Hiring Team,
+
+I build the analytics infrastructure that turns raw data into decisions — pipelines, dashboards, and models that give businesses a reliable, self-serve view of how they're actually performing. At ${company}, I'd bring that same foundation to your ${role} function.
+
+Over 4+ years in data and analytics at an e-commerce and digital platform company, I've built end-to-end solutions across the full BI stack. Most recently, I engineered a cohort revenue attribution model spanning 15 retention windows (D3–D90) — giving the business its first reliable, self-serve view of revenue by cohort through a live dashboard built for non-technical stakeholders. Alongside that, I built a multi-channel advertising cost automation pipeline ingesting daily spend from 5+ platforms, eliminating cross-team data inconsistencies that had been quietly corrupting downstream reports.${extraSentence}
+
+My work sits at the intersection of engineering and analysis — I don't just surface numbers, I build the systems that make those numbers trustworthy. Whether that's writing complex SQL across distributed data platforms, designing KPI frameworks with cross-functional stakeholders, or replacing manual weekly reporting with AI-assisted executive narratives, I focus on building things that scale and last.
+
+${company}'s focus on ${focusLine} is exactly the kind of environment where this approach has the most impact. I'd welcome the chance to discuss how I can contribute.
+
+Danica Tomines
+danica.c.tomines@digiplus.com.ph`;
+
+    const outputCard = document.getElementById('outputCard');
+    const outputText = document.getElementById('outputText');
+    const outputLabel = document.getElementById('outputLabel');
+
+    outputLabel.textContent = role + ' at ' + company;
+    outputText.textContent = letter;
+    outputCard.style.display = 'block';
+    outputCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  lastCompany = company;
-  lastRole = role;
-
-  const btn = document.getElementById('genBtn');
-  const btnText = document.getElementById('btnText');
-  const outputCard = document.getElementById('outputCard');
-  const outputText = document.getElementById('outputText');
-  const outputLabel = document.getElementById('outputLabel');
-
-  btn.disabled = true;
-  btnText.textContent = 'Generating...';
-  outputCard.style.display = 'block';
-  outputLabel.textContent = `${role} at ${company}`;
-  outputText.innerHTML = '<div class="loading-text"><div class="spinner"></div> Writing your cover letter...</div>';
-
-  outputCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  const purposeInstructions = {
-    'job application': 'Write a professional cover letter for a job application. Structure: opening with a strong statement about what Danica does, 1-2 body paragraphs with specific project evidence, closing with a clear call to action. Max 350 words.',
-    'MBA / graduate school application': 'Write a personal statement / cover letter for a graduate school or MBA application. Focus on analytical thinking, leadership, career trajectory, and why this program fits. Reference projects as evidence of analytical capability and impact. Max 400 words.',
-    'freelance or consulting pitch': 'Write a consulting pitch letter. Lead with the business problem you solve, use projects as proof of capability, and close with a specific engagement proposal. Max 300 words.'
-  };
-
-  const systemPrompt = `You are writing a cover letter for Danica Tomines, a data and analytics professional.
-
-Personal details:
-- Name: Danica Tomines
-- Location: Manila, Philippines
-- Open to: global remote work, international opportunities
-- Experience: 4+ years in data & analytics
-- Target roles: Analytics Engineer, Business Intelligence Analyst
-- Industry background: e-commerce / digital platform (do not name the specific company)
-
-Core skills: SQL, ODPS, Python, data pipeline engineering, QuickBI dashboards, marketing analytics, cohort analysis, attribution modeling, AI/LLM workflow design, prompt engineering
-
-Key projects (reference these as proof points — keep details general, no specific employer names):
-1. Multi-channel ad cost automation pipeline — ingested daily spend from 5+ platforms (search, social, programmatic, OEM) into a centralized layer; eliminated cross-team reporting inconsistencies across multiple business lines
-2. Cohort revenue attribution model — 15 retention windows (D3–D90), self-serve BI dashboard, gave the business its first reliable cohort revenue view
-3. AI-powered weekly marketing insights skill — transforms raw acquisition channel data into executive narratives across 3 business lines; reduced manual reporting effort significantly
-4. Marketing attribution discrepancy investigation — sequential elimination methodology, reconciled channel vs internal records, restored data trust across teams
-
-Writing rules:
-- Tone: ${selectedTone}
-- Purpose: ${purposeInstructions[selectedPurpose]}
-- Never use hollow filler phrases like "I am passionate about", "I am excited to apply", "team player", "fast learner"
-- Lead with a specific, confident statement about what Danica does and the value she brings
-- Reference at most 2 projects — choose the ones most relevant to the role
-- Write naturally — like a real person, not a template
-- No placeholder brackets in the output — write a complete, ready-to-send letter
-- Sign off: Danica Tomines
-- Do not include a date or address header`;
-
-  const userPrompt = `Write a cover letter for:
-Company: ${company}
-Role: ${role}
-Purpose: ${selectedPurpose}
-${jd ? `\nJob description:\n${jd}` : ''}
-${extra ? `\nSpecific instructions: ${extra}` : ''}
-
-Write the complete letter now.`;
-
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: userPrompt }]
-      })
+  function copyText() {
+    const text = document.getElementById('outputText').textContent;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+      }, 2000);
     });
-
-    const data = await response.json();
-    const text = data.content?.find(b => b.type === 'text')?.text || 'Something went wrong. Please try again.';
-    outputText.textContent = text;
-  } catch (err) {
-    outputText.textContent = 'Error generating letter. Please check your connection and try again.';
   }
 
-  btn.disabled = false;
-  btnText.textContent = 'Generate cover letter';
-}
-
-function regenerate() {
-  generate();
-}
-
-function copyText() {
-  const text = document.getElementById('outputText').textContent;
-  if (!text || text.includes('Writing your cover letter')) return;
-  navigator.clipboard.writeText(text).then(() => {
-    const btns = document.querySelectorAll('.action-btn');
-    btns[0].textContent = 'Copied!';
-    setTimeout(() => {
-      btns[0].innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
-    }, 2000);
-  });
-}
-
-function downloadText() {
-  const text = document.getElementById('outputText').textContent;
-  if (!text || text.includes('Writing your cover letter')) return;
-  const blob = new Blob([text], { type: 'text/plain' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `cover-letter-${lastCompany.toLowerCase().replace(/\s+/g, '-')}-${lastRole.toLowerCase().replace(/\s+/g, '-')}.txt`;
-  a.click();
-}
+  function downloadText() {
+    const text = document.getElementById('outputText').textContent;
+    if (!text) return;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'cover-letter-' + lastCompany.toLowerCase().replace(/\s+/g, '-') + '-' + lastRole.toLowerCase().replace(/\s+/g, '-') + '.txt';
+    a.click();
+  }
 </script>
 
 </body>
